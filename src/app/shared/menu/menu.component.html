@@ -1,0 +1,37 @@
+<mat-toolbar class="mat-elevation-z2 bg-white tc-fixed" fxLayout fxLayoutAlign="space-between center">
+    <div fxLayout fxLayoutGap="3rem" fxShow fxHide.lt-lg="true">
+        <div>
+            <a class="tc-header tc-menu-link" mat-button routerLink="/">tinyComp</a>
+        </div>
+        <div fxLayout fxLayoutGap="0.5rem">
+            <a class="tc-menu-link" mat-button [routerLinkActive]="'active'"
+                [routerLink]="['/products/glasscase-jquery-image-zoom-plugin']">GlassCase</a>
+            <a class="tc-menu-link" mat-button [routerLinkActive]="'active'"
+                [routerLink]="['/products/overbox-jquery-image-video-lightbox-plugin']">OverBox</a>
+            <a class="tc-menu-link" mat-button [routerLinkActive]="'active'"
+                [routerLink]="['/products/sol-jquery-carousel-plugin']">SolCarousel</a>
+        </div>
+    </div>
+    <div fxLayout fxLayoutGap="3rem" fxShow fxHide.lt-lg="true">
+        <div fxLayout fxLayoutGap="0.5rem">
+            <a class="tc-menu-sublink" mat-button [routerLinkActive]="'active'" [routerLink]="['features']">Features</a>
+            <a class="tc-menu-sublink" mat-button [routerLinkActive]="'active'" [routerLink]="['examples']">Examples</a>
+            <a class="tc-menu-sublink" mat-button [routerLinkActive]="'active'"
+                [routerLink]="['documentation']">Documentation</a>
+            <a class="tc-menu-sublink" mat-button [routerLinkActive]="'active'" [routerLink]="['changelog']">Change
+                Logs</a>
+        </div>
+        <div>
+            <a (click)="onClickCC()" mat-flat-button [color]="'accent'"
+                class="tc-code-canyon tc-menu-link" >{{txtGetSources}}</a>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="start center" fxShow fxHide.gt-md="true" class="w-100">
+        <button mat-button color="primary" (click)="showMenuOverlay()">
+            <mat-icon>dehaze</mat-icon>
+        </button>
+        <div fxLayout fxLayoutAlign="center center" class="w-100">
+            <a mat-button routerLink="/" class="tc-header tc-menu-link">tinyComp.{{productType}}</a>
+        </div>
+    </div>
+</mat-toolbar>

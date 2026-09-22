@@ -1,0 +1,15 @@
+<div class="tc-root-container" fxLayout="column">
+    <app-menu></app-menu>
+    <mat-sidenav-container class="w-100 h-100">
+        <mat-sidenav #drawer mode="over" (openedChange)="onDrawerOpenedChange($event)">
+            <app-menu-overlay></app-menu-overlay>
+        </mat-sidenav>
+        <mat-sidenav-content fxLayout="column" class="w-100 h-100">
+            <app-title-bar [value]="title"></app-title-bar>
+            <div fxFlex="1 1 auto">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer></app-footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

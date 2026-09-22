@@ -1,0 +1,28 @@
+<table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td class="tc-td-property" mat-cell *matCellDef="let element" ngClass.gt-sm="tc-no-wrap"> <span class="tc-no-wrap">{{element.name}}<span *ngIf="element.default">:</span></span> {{element.type}}</td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td class="tc-no-wrap" mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container> -->
+    <!-- <ng-container matColumnDef="default">
+      <th mat-header-cell *matHeaderCellDef> Default </th>
+      <td class="tc-no-wrap" mat-cell *matCellDef="let element"> {{element.default}} </td>
+    </ng-container> -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element">
+          <div [innerHtml]="element.description"></div>
+          <br *ngIf="element.default">
+          <div *ngIf="element.default" class="tc-default-value"><span>Default Value:</span> {{element.default}}</div>
+          <br *ngIf="element.versionAdded || element.versionDeleted">
+          <span *ngIf="element.versionAdded" [matBadge]="element.versionAdded" matBadgeOverlap="false">Version Added</span>
+          <span matBadgeColor="accent" *ngIf="element.versionDeleted" [matBadge]="element.versionDeleted" matBadgeOverlap="false">Version Deleted</span>
+        </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

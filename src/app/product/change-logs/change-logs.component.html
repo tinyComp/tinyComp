@@ -1,0 +1,36 @@
+<div fxLayout="column" class="tc-container tc-logs">
+    <div *ngFor="let changeLog of data?.content">
+        <div fxLayout fxLayoutAlign="center">
+            <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                <h1 class="mat-h1">{{changeLog?.title}}</h1>
+                <ng-container *ngIf="changeLog.new">
+                    <h2 class="mat-h2">New</h2>
+                    <ul>
+                        <li *ngFor="let log of changeLog.new">
+                            <div [innerHTML]="log.text"></div>
+                            <ul>
+                                <li *ngFor="let sublog of log.list" [innerHTML]="sublog"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ng-container>
+                <ng-container *ngIf="changeLog.fix">
+                    <h2 class="mat-h2">Fix</h2>
+                    <ul>
+                        <li *ngFor="let log of changeLog.fix">
+                            <div [innerHTML]="log.text"></div>
+                            <ul>
+                                <li *ngFor="let sublog of log.list" [innerHTML]="sublog"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ng-container>
+                <ng-container *ngIf="changeLog.release">
+                    <ul>
+                        <li [innerHtml]="changeLog.release"></li>
+                    </ul>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+<div fxLayout="column" class="tc-container">
+    <div fxLayout fxLayoutAlign="center start">
+        <div fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%"
+            [fxLayout.gt-sm]="productType != 'SolCarousel' ? 'row' : 'column'" fxLayout="column" fxLayoutGap="2rem"
+            [fxLayoutAlign.gt-sm]="productType != 'SolCarousel' ? 'center start' : 'start center'"
+            fxLayoutAlign="start center">
+            <div [ngClass]="{'tc-product-gc': productType == 'GlassCase', 'tc-product-sc': productType == 'SolCarousel'}"
+                [innerHtml]="data?.content?.code | safeHtml"></div>
+            <div fxLayout="column" fxLayoutGap="2rem"
+                [fxLayoutAlign.gt-sm]="productType == 'SolCarousel' ? 'center center' : 'start start'"
+                fxLayoutAlign="center center">
+                <h1 class="mat-h1">{{data?.content?.overview?.title}}</h1>
+                <ul class="tc-list">
+                    <li *ngFor="let ofeature of data?.content?.overview?.list">{{ofeature}}</li>
+                </ul>
+                <a mat-stroked-button color="primary" fragment="details" (click)="goTo('details')">View Details</a>
+            </div>
+        </div>
+    </div>
+    <div fxLayout fxLayoutAlign="center start">
+        <div fxLayout="row wrap" fxLayoutGap="2rem" fxLayoutAlign="start" id="details" fxFlex.gt-md="0 0 70%"
+            fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+            <div fxFlex="0 0 calc(33.3333% - 2rem)" fxFlex.lt-md="0 0 calc(50% - 2rem)"
+                fxFlex.lt-sm="0 0 calc(100% -2rem)" fxLayout fxLayoutAlign="start start" class="feature-container"
+                *ngFor="let feature of data?.content?.features">
+                <div class="feature" fxLayout="column" ngClass.lt-md="feature-small">
+                    <div fxLayout fxLayoutAlign="start center" fxLayoutGap="1rem">
+                        <button mat-fab color="primary" class="shadow-none">
+                            <mat-icon>{{feature.icon}}</mat-icon>
+                        </button>
+                        <h2 class="mat-h2 feature-title">{{feature.title}}</h2>
+                    </div>
+                    <div>
+                        <ul class="tc-list" style="margin-left: 5.5rem;">
+                            <li *ngFor="let f of feature.list">{{f}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div *ngIf="productType == 'OverBox'">
+
+
+
+    <div class="overbox ob-overbox-cnt">
+        <div class="ob-overbox-area-ctr">
+            <div class="ob-overbox-control-close ob-overbox-area-close">
+                <div class="ob-icon ob-icon-close">&nbsp;</div>
+            </div>
+        </div>
+        <div class="ob-overbox-main-cnt">
+            <div class="ob-overbox-slide-cnt"></div>
+        </div>
+        <div class="ob-overbox-info-controls-cnt">
+            <div class="ob-overbox-info-cnt">
+                <div class="ob-overbox-control-pagination">
+                    <span class="pagCurPos"></span> <span class="pagSeparator"></span> <span class="pagTotPos"></span>
+                </div>
+                <div class="ob-overbox-info-caption"></div>
+                <div class="ob-overbox-info-controls"></div>
+            </div>
+            <div class="ob-overbox-controls-cnt ob-overbox-info-controls-right">
+                <div class="ob-overbox-control-close">
+                    <div class="ob-icon ob-icon-close">&nbsp;</div>
+                </div>
+                <div class="ob-overbox-control-pagination">
+                    <span class="pagCurPos"></span> <span class="pagSeparator"></span> <span class="pagTotPos"></span>
+                </div>
+                <div class="ob-overbox-control-next">
+                    <div class="ob-icon ob-icon-next">&nbsp;</div>
+                </div>
+                <div class="ob-overbox-control-prev">
+                    <div class="ob-icon ob-icon-prev">&nbsp;</div>
+                </div>
+                <div class="ob-overbox-control-info">
+                    <div class="ob-icon ob-icon-information">
+                        <div>i</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div> -->

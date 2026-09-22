@@ -1,0 +1,348 @@
+<mat-tab-group mat-stretch-tabs animationDuration="0" [dynamicHeight]="true"
+    (selectedTabChange)="onSelectedTabChange($event)">
+    <mat-tab *ngFor="let content of data.content; let index=index">
+        <ng-template mat-tab-label>
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon class="example-tab-icon">{{content.icon}}</mat-icon>
+                <span>
+                    {{content.title}}
+                </span>
+            </div>
+        </ng-template>
+        <div class="tc-container" fxLayout="column">
+            <ng-container *ngIf="index==0">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%"
+                        [innerHtml]="content.desc">
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="index==1 && productType == 'GlassCase'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 1</h1>
+                        <p>
+                            Add the files to your project. To use GlassCase on a web page include the following files:
+                        </p>
+                        <app-code-clipboard [value]="content.desc[0]"></app-code-clipboard>
+                        <div class="tc-callout tc-callout-warning">
+                            Drop the script tags of <b>Modernizr</b> in the <code>&lt;head&gt;</code> of your HTML. For
+                            a
+                            better performance, you should have them follow after your stylesheet references.
+                        </div>
+                        <div class="tc-callout tc-callout-info">
+                            Add the <b>fonts</b> directory to your project. These files are used by the plugin to
+                            generate
+                            the icons.
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 2</h1>
+                        <p>
+                            Once you've included the necessary files, you can add 1 or more GlassCases to your page. The
+                            necessary HTML setup for the GlassCase consists
+                            of an unordered list of content.
+                        </p>
+                        <p>
+                            The content can be:
+                        </p>
+                        <ul>
+                            <li>Images: the default content type. Use the <code>&lt;img&gt;</code> tag.</li>
+                            <li>Video:
+                                <ul>
+                                    <li><b>IFrame</b> (Youtube, Vimeo);</li>
+                                    <li><b>HTML5 Video</b>.</li>
+                                </ul>
+                                Use the <code>&lt;a&gt;</code> tag. Specify which type of video you want to show by
+                                adding
+                                the data attribute <code>data-gc-type</code>.
+                            </li>
+                        </ul>
+                        <p>Images will be resized to be shown as thumbs and also will be used as display images. In case
+                            of
+                            video content: for the thumb images the plugin will generate an image including text that
+                            it's
+                            descriptive of the content it holds. The text can be changed through options.</p>
+                        <p>Optionally, you can add captions to the Zoom Area. It is sufficient to add to the image tag
+                            the
+                            attribute <code>data-gc-caption</code> with the caption text.</p>
+                        <div class="tc-callout tc-callout-info">
+                            Captions are available only for the image content type.
+                        </div>
+                        <div class="tc-callout tc-callout-warning">
+                            It is very important that you add the class <code>gc-start</code> to the list of images.
+                        </div>
+                        <app-code-clipboard [value]="content.desc[1]"></app-code-clipboard>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 3</h1>
+                        <p>
+                            After the HTML setup, you can call the plugin.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[2]"></app-code-clipboard>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 4</h1>
+                        <a mat-stroked-button color="primary" class="mt-5"
+                            [routerLink]="['/products/glasscase-jquery-image-zoom-plugin/examples']">Go
+                            see Demos</a>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="index==1 && productType == 'OverBox'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 1</h1>
+                        <p>
+                            Add the files to your project. To use OverBox on a web page include the following files:
+                        </p>
+                        <app-code-clipboard [value]="content.desc[0]"></app-code-clipboard>
+                        <div class="tc-callout tc-callout-warning">
+                            Drop the script tags of <b>Modernizr</b> in the <code>&lt;head&gt;</code> of your HTML. For
+                            a
+                            better performance, you should have them follow after your stylesheet references.
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 2</h1>
+                        <p>
+                            Once you've included the necessary files, you can add 1 or more OverBoxes to your page. The
+                            necessary HTML setup for the Overbox consists only of an anchor tag.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[1]"></app-code-clipboard>
+                        <br>
+                        <p>
+                            Grouping elements in an instance of an OverBox is done using the attribute
+                            <code>data-ob-group="group_name"</code>.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[2]"></app-code-clipboard>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 3</h1>
+                        <p>
+                            After the HTML setup, you can call the plugin.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[3]"></app-code-clipboard>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 4</h1>
+                        <a mat-stroked-button color="primary" class="mt-5"
+                            [routerLink]="['/products/overbox-jquery-image-video-lightbox-plugin/examples']">Go
+                            see Demos</a>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="index==1 && productType == 'SolCarousel'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 1</h1>
+                        <p>
+                            Add the files to your project. To use SolCarousel on a web page include the following files:
+                        </p>
+                        <app-code-clipboard [value]="content.desc[0]"></app-code-clipboard>
+                        <div class="tc-callout tc-callout-warning">
+                            Drop the script tags of
+                            <strong>Modernizr</strong> in the
+                            <code>&lt;head&gt;</code> of your HTML. For a better performance, you should have them
+                            follow after your stylesheet
+                            references.
+                        </div>
+                        <div class="tc-callout tc-callout-info">
+                            Add the
+                            <strong>fonts</strong> directory to your project. These files are used by the plugin to
+                            generate the icons.
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 2</h1>
+                        <p>
+                            Once you've included the necessary files, you can add 1 or more SolCarousel to your page.
+                            The
+                            necessary
+                            HTML setup for the SolCarousel consists of an unordered list of <code>&lt;a&gt;</code> tags.
+                            The
+                            <code>href</code> attribute holds the url to the media object.
+                        </p>
+
+                        <p>SolCarousel is composed of:</p>
+                        <ul>
+                            <li>itemsPanel - holds the content shown by the solCarousel;</li>
+                            <li>slidesNavigation - the "dots", show the current position in the carousel;</li>
+                            <li>arrowsNavigation.</li>
+                        </ul>
+                        <p>Each itemPanel can have:</p>
+                        <ul>
+                            <li>a media object;</li>
+                            <li>body object;</li>
+                            <li>quickView button with overlay.</li>
+                        </ul>
+                        <p>The <strong>media object</strong> can be: an image, an iframe or a html5 Video. The type of
+                            the media object is specified through the data attribute <code>data-crl-type</code>. In case
+                            that you don't want to have a media object set <code>data-crl-type='none'</code>.</p>
+                        <p>The <strong>body object</strong> is composed of: title and/or text. To set the title use the
+                            <code>data-crl-title</code> attribute. To set the text use the <code>data-crl-text</code>.
+                        </p>
+                        <p>Clicking on a <strong>quickView button</strong>, an overlay will appear with ajax
+                            content(obtained from an ajax call). The url to the quickView content can be set through the
+                            data attribute <code>crl-url-qv</code>.</p>
+                        <p>An itemPanel can be deleted from the carousel. This option can be disabled by setting:
+                            <code>'hasDeleteBtn': false</code>. Also, the whole carousel can be deleted by calling the
+                            plugin with option: <code>'delete': true</code>.
+                        </p>
+                        <p>Clicking on an <strong>itemPanel</strong> the user will navigate to the url set in the data
+                            attribute <code>crl-link</code>.</p>
+                        <app-code-clipboard [value]="content.desc[1]"></app-code-clipboard>
+                        <div class="tc-callout tc-callout-warning">It is very important that you add the class
+                            <code>crlStart</code> to the list of images.
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 3</h1>
+                        <p>
+                            After the HTML setup, you can call the plugin.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[2]"></app-code-clipboard>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">Step 4</h1>
+                        <a mat-stroked-button color="primary" class="mt-5"
+                            [routerLink]="['/products/sol-jquery-carousel-plugin/examples']">Go
+                            see Demos</a>
+                    </div>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="index==2 && productType == 'GlassCase'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <p>
+                            The GlassCase plugin can be customized through <b>options</b>. The plugin has a default
+                            configuration which is catered to the most basic and common use case. But if you want the
+                            plugin
+                            to
+                            behave different from its default configuration, you can override each of its default
+                            settings
+                            using
+                            the options.
+                        </p>
+                        <p>
+                            For example, to change the plugin's thumbs position, from <code>bottom</code> to
+                            <code>top</code>, set the option <code>thumbsPosition</code> to <code>top</code>.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[0]"></app-code-clipboard>
+                        <p>
+                            Options are grouped by area to which they pertain or affect.
+                        </p>
+                    </div>
+                </div>
+                <div *ngFor="let groupOption of content.options" fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="groupOption.options.length"
+                                matBadgeOverlap="false">{{groupOption.title}}</span>
+                        </h1>
+                        <app-table [type]="'Option'" [dataSource]="groupOption.options"></app-table>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="content.attributes.length" matBadgeOverlap="false">Attributes</span>
+                        </h1>
+                        <app-table [type]="'Attribute'" [dataSource]="content.attributes"></app-table>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="index==2 && productType == 'OverBox'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <p>
+                            The OverBox plugin can be customized through <b>options</b> or/and <b>data
+                                attributes</b>&nbsp;<code>data-ob-*</code>. The
+                            plugin has a default configuration which is catered to the most basic and common use case.
+                            But if you want the plugin to behave different from its default configuration, you can
+                            override each of its default settings using the options.
+                        </p>
+                    </div>
+                </div>
+                <div *ngFor="let groupOption of content.options" fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="groupOption.options.length"
+                                matBadgeOverlap="false">{{groupOption.title}}</span>
+                        </h1>
+                        <app-table [type]="'Option'" [dataSource]="groupOption.options"></app-table>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="content.attributes.length" matBadgeOverlap="false">Attributes</span>
+                        </h1>
+                        <app-table [type]="'Attribute'" [dataSource]="content.attributes"></app-table>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="index==2 && productType == 'SolCarousel'">
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <p>
+                            The SolCarousel plugin can be customized through
+                            <strong>options</strong>. The plugin has a default configuration which is catered to the
+                            most basic and common use
+                            case. But if you want the plugin to behave different from its default configuration, you can
+                            override each
+                            of its default settings using the options.
+                        </p>
+                        <p>
+                            For example, to change the plugin's slidesNav position, from
+                            <code>bottom</code> to
+                            <code>top</code>, set the option
+                            <code>slidesNavPos</code>
+                            to
+                            <code>top</code>.
+                        </p>
+                        <app-code-clipboard [value]="content.desc[0]"></app-code-clipboard>
+                        <p>Options are grouped by area to which they pertain or affect.</p>
+                    </div>
+                </div>
+                <div *ngFor="let groupOption of content.options" fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="groupOption.options.length"
+                                matBadgeOverlap="false">{{groupOption.title}}</span>
+                        </h1>
+                        <app-table [type]="'Option'" [dataSource]="groupOption.options"></app-table>
+                    </div>
+                </div>
+                <div fxLayout fxLayoutAlign="center start">
+                    <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+                        <h1 class="mat-h1">
+                            <span [matBadge]="content.attributes.length" matBadgeOverlap="false">Attributes</span>
+                        </h1>
+                        <app-table [type]="'Attribute'" [dataSource]="content.attributes"></app-table>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </mat-tab>
+</mat-tab-group>

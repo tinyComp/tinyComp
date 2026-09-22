@@ -1,0 +1,12 @@
+1. npm install jquery -- save
+2. npm install --save @types/jquery
+    *If you use jquery @types no need to add jquery.min.js file reference in angular.json file.
+
+
+    "node_modules/jquery/dist/jquery.min.js",
+
+GlassCase:
+a. Adding material fonts to the plugin
+    1. npm install material-design-icons
+    2. copy folder of iconfont to assets/fonts
+    3. to use code point: &#x + e5cb; e5cb -> it's the code point

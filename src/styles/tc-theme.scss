@@ -1,0 +1,83 @@
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
+@include mat.core();
+
+$app-primary: mat.define-palette(mat.$green-palette, 600);
+$app-accent: mat.define-palette(mat.$amber-palette, 600);
+$app-warn: mat.define-palette(mat.$red-palette);
+
+$app-theme: mat.define-light-theme($app-primary, $app-accent, $app-warn);
+
+//Background
+$background-color: rgba(map-get(mat.$blue-grey-palette, 50), .5); //.25
+$background: map-get($app-theme, background);
+$background: map_merge($background, (background: $background-color));
+$app-theme: map_merge($app-theme, (background: $background));
+
+//Foreground
+//Text color
+$dark-grey: map-get(mat.$blue-grey-palette, 900);
+$dark-dividers: rgba($dark-grey, 0.12);
+
+@function app-foreground($color) {
+    @return (
+        base:              $color,
+        divider:           $dark-dividers,
+        dividers:          $dark-dividers,
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.38),
+        disabled-text:     rgba($color, 0.38),
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.87),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 0.87),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+        slider-min:        rgba($color, 0.38)
+    );
+};
+
+$foreground: app-foreground($dark-grey);
+$app-theme: map_merge($app-theme, (foreground: $foreground));
+
+@include mat.all-component-themes($app-theme);
+
+//Typography
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Roboto, monospace',
+  $headline:    mat.define-typography-level(32px, 48px, 700),
+  $body-1:      mat.define-typography-level(16px, 24px, 500)
+);
+@include mat.core($custom-typography);
+
+//COLORS
+
+//primary
+$primary-color: mat.get-color-from-palette($app-primary);
+$primary-color-50: mat.get-color-from-palette($app-primary, 50);
+$primary-color-200: mat.get-color-from-palette($app-primary, 200);
+$primary-color-700: mat.get-color-from-palette($app-primary, 700);
+$primary-color-800: mat.get-color-from-palette($app-primary, 800);
+
+//accent
+$accent-color: mat.get-color-from-palette($app-accent);
+$accent-color-400: mat.get-color-from-palette($app-accent, 400);
+
+//grey
+$grey-900: map-get(mat.$blue-grey-palette, 900);
+$grey-800: map-get(mat.$blue-grey-palette, 800);
+$grey-600: map-get(mat.$blue-grey-palette, 600);
+$grey-300: map-get(mat.$blue-grey-palette, 300);
+$grey-100: map-get(mat.$blue-grey-palette, 100);
+$grey-50: map-get(mat.$blue-grey-palette, 50);
+
+//green
+$light-green: map-get(mat.$green-palette, 300);
+
+//orange
+$orange-50: map-get(mat.$orange-palette, 50);
+
+//teal
+$teal: map-get(mat.$teal-palette, 50);
+

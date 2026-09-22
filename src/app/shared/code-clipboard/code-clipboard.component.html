@@ -1,0 +1,9 @@
+<div class="tc-card bg-grey">
+    <button class="tc-btn-clipboard" mat-button (click)="onCopy(contentToClipBoard.innerText)"
+        matTooltip="Copy to clipboard">
+        <mat-icon>content_copy</mat-icon>
+    </button>
+    <div #contentToClipBoard>
+        <pre><code [highlight]="value" [languages]="languageType"></code></pre>
+    </div>
+</div>

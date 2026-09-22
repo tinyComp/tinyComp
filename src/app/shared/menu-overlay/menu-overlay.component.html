@@ -1,0 +1,22 @@
+<mat-list>
+    <div *ngFor="let mg of menuGroups; let index=index">
+        <div mat-subheader>
+            <h2 class="mt-5">
+                {{mg.name}}
+            </h2>
+        </div>
+        <mat-list-item *ngFor="let mi of menuItems | menuItemFilter: mg">
+            <div mat-line>
+                <a class="tc-menu-sublink" mat-button [routerLinkActive]="'active'" [routerLink]="[mg.path, mi.path]"
+                    (click)="navigate(mg, mi)">{{mi.name}}</a>
+            </div>
+        </mat-list-item>
+        <mat-list-item>
+            <div mat-line>
+                <a mat-flat-button color="accent" class="tc-code-canyon tc-menu-link" [href]="ccLink">Get it from
+                    CodeCanyon</a>
+            </div>
+        </mat-list-item>
+        <mat-divider *ngIf="!((index+1) == menuGroups.length)"></mat-divider>
+    </div>
+</mat-list>

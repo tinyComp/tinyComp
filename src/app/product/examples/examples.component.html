@@ -1,0 +1,46 @@
+<mat-tab-group #matTabGroup mat-stretch-tabs animationDuration="0" [dynamicHeight]="true" (selectedTabChange)="onSelectedTabChange($event)">
+  <mat-tab *ngFor="let content of data?.content; let indexTab = index">
+    <ng-template mat-tab-label>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="example-tab-icon">{{content.icon}}</mat-icon>
+        <span>
+          {{content.title}}
+        </span>
+      </div>
+    </ng-template>
+    <div class="tc-container" [id]="'tab' + indexTab" fxLayout="column">
+      <div *ngFor="let example of content.examples; let index = index" fxLayout fxLayoutAlign="center start">
+        <div fxLayout="column" fxFlex.gt-md="0 0 70%" fxFlex.gt-sm="0 0 90%" fxFlex="0 0 100%">
+          <h1 class="mat-h1">{{example.title}}</h1>
+          <div *ngIf="productType != 'SolCarousel'" fxLayout.gt-sm="row" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign.gt-xs="center start">
+            <div fxLayout [fxLayoutAlign.lt-md]="index%2 ? 'end' : 'start'" [fxFlexOrder.gt-sm]="index%2 ? 1 : 0" 
+            style="max-width: 370px; width: 100%;" [innerHtml]="example.code | safeHtml"></div>
+            <div fxFlex.gt-sm="1 1 calc(100% - 370px - 2rem)" [fxFlexOrder.gt-sm]="index%2 ? 0 : 1">
+              <div [innerHtml]="example.desc | safeHtml"></div>
+              <mat-tab-group mat-stretch-tabs animationDuration="0" [dynamicHeight]="true" class="tc-tab-code w-100">
+                <mat-tab label="HTML">
+                  <app-code-clipboard [value]="example.code" [languageType]='html'></app-code-clipboard>
+                </mat-tab>
+                <mat-tab label="JS">
+                  <app-code-clipboard [value]="example.sourceCodeJS" [languageType]='javascript'></app-code-clipboard>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+          </div>
+          <div *ngIf="productType == 'SolCarousel'" fxLayout="column" fxLayoutGap="2rem" fxLayoutAlign.gt-xs="center start">
+            <div [innerHtml]="example.desc | safeHtml"></div>
+            <div style="max-width: 100%; width: 100%!important;" [innerHtml]="example.code | safeHtml"></div>
+              <mat-tab-group *ngIf="productType != 'GlassCase'" mat-stretch-tabs animationDuration="0" [dynamicHeight]="true" class="tc-tab-code w-100">
+                <mat-tab label="HTML">
+                  <app-code-clipboard [value]="example.code" [languageType]='html'></app-code-clipboard>
+                </mat-tab>
+                <mat-tab label="JS">
+                  <app-code-clipboard [value]="example.sourceCodeJS" [languageType]='javascript'></app-code-clipboard>
+                </mat-tab>
+              </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

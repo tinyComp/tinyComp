@@ -1,0 +1,22 @@
+@import '../../../styles/tc-theme.scss';
+
+table {
+  width: 100%;
+  background-color: transparent !important;
+}
+
+th {
+  font-size: 1em !important;
+  padding: .5rem 1rem !important;
+  background-color: rgba($grey-50, 0.4);
+}
+td {
+    font-size: .9rem !important;
+    padding: .5rem 1rem !important;
+  }
+  
+  .tc-td-property {
+  font-size: .75rem !important;
+  font-family: Roboto Mono, monospace;
+  font-weight: 400;
+}
